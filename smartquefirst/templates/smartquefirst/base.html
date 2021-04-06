@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Изучаем Django</title>
+	{% load static %}
+ 
+	<link rel="stylesheet" type="text/css" href="{% static 'smartquefirst/style.css' %}">
+</head>
+<body>
+<div class="header">
+	<p><a href="{% url 'smartquefirst:index' %}">
+	Журнал записей пользователя
+	{% if user.is_authenticated %}{{ user.username }}{% endif %}
+	</a></p>
+</div>
+ 
+{% block content %}{% endblock content %}
+ 
+</body>
+</html>
