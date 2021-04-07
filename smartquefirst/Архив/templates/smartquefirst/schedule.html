@@ -1,0 +1,35 @@
+{% extends 'smartquefirst/base.html' %}
+{% block content %}
+<div class="main"><div class="container"><div class="column1">
+    <div class="CenterTable">
+    <h2>
+        <table>
+            <tr>
+                {% for firstth in firstths %}
+                    <th>
+                        {{ firstth }}
+                    </th>
+                {% empty %}
+                    <th>Empty List</th>
+                {% endfor %}
+            </tr>
+            {% for tr in trs %}
+                <tr>
+                    {% for th in tr %}
+                    <th>
+                        {{ th }}
+                    </th>
+                    {% empty %}
+                        <th>Empty List</th>
+                    {% endfor %}
+                </tr>
+            {% empty %}
+                <tr>
+                    <th>Empty List</th>
+                </tr>
+            {% endfor %}
+        </table>
+    </h2>
+    </div>
+</div></div></div>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'smartquefirst/base.html'%}
+
+{% block content %}
+<form action="{% url 'smartquefirst:yournumber' %}" method="post">
+    {% csrf_token %}
+    <h1>
+        <div class="Checkbox">
+            <div class="inputGroup">
+                {% for checkbox in checkboxes %}
+                <div class = "checkBoxButtons" >
+                    <!-- Тут option разный должен быть, чтобы это все дело работало, так что возможно там должна быть 
+                    фигурная скобка, но я не знаю --> 
+                    <input id="{{ checkbox }}" name="cabs_options" type="checkbox" value="{{ checkbox }}"/>
+                    <label for="{{ checkbox }}">{{ checkbox }}</label>
+                </div>
+                {% empty %}
+                    <p>Is empty</p>
+                {% endfor %}
+            </div>
+        </div>
+    </h1>
+    <h2>
+        <div class="Centertext">
+            <input type="submit" value="Submit">
+            <button class="b1" onclick="window.location.href = {% url 'smartquefirst:yournumber' %};">
+            <font size="5">Готово</font>
+            </button>
+        </div>
+    </h2>
+</form>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'smartquefirst/base.html' %}
+{% block content %}
+<div class="main">
+    <div class="container">
+        <div class="okno">
+            <font size="6">Ваш номер регистрации:</font>
+            <div style="margin-top: 23%;"></div>
+            <font size="12">{{ clientnumber }}</font>
+        </div>
+        <div class="Centertext">
+            <button class="b1" onclick="window.location.href = {% url 'smartquefirst:recording' %};">
+                <font size="5">Назад</font>
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock content %}
