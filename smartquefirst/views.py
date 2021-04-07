@@ -30,8 +30,14 @@ def topic(request, topic_id):
 
 
 def schedule(request):
-    firstline = ['Cab1', 'Cab2', 'Cab3']
-    otherlines = [['1', '2', '3'], ['4', '-', '-']]
+    response = requests.get("http://localhost:8000/api/smartquerest/get_schedule/")
+    #print(response.json())
+    
+    firstline = json.loads(response.json())['names']
+    otherlines = json.loads(response.json())['guests']
+    #for i in range(0, len(otherlines)):
+     #   for j in range(i, len(otherlines)):
+      #      otherlines[i][j], otherlines[j][i] = otherlines[j][i], otherlines[i][j]
     context = {
         'title' : 'Текущая очередь',
         'firstths' : firstline,

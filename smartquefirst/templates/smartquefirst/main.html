@@ -19,17 +19,9 @@
     <div class="column2">
     <p><p>
       <div class="qrtitle"><h3>QR-код для перехода на телеграм-бота</h3></div>
-      <div class=""><img src="qrcode.jpg" class="qrcode"></div>
+        {% load static %}
+      <div class=""><img src="{% static 'smartquefirst/qrcode.png' %}" class="qrcode"></div>
     </div>
     </div></div>
-
-
-
-
-<footer><div class="container">
-<p>Мехмат ЮФУ
-
-
-</div></footer>
 
 {% endblock content %}
