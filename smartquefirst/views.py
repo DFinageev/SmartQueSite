@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from .models import Topic
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 import requests
@@ -30,11 +29,13 @@ def topic(request, topic_id):
 
 
 def schedule(request):
-    response = requests.get("http://localhost:8000/api/smartquerest/get_schedule/")
-    #print(response.json())
+    response = requests.get("http://178.154.213.228:8000/api/smartquerest/get_schedule/")
+    #print(response.json)
     
     firstline = json.loads(response.json())['names']
     otherlines = json.loads(response.json())['guests']
+    #firstline = [str(response.json), '1']
+    #otherlines = ['1']
     #for i in range(0, len(otherlines)):
      #   for j in range(i, len(otherlines)):
       #      otherlines[i][j], otherlines[j][i] = otherlines[j][i], otherlines[i][j]
@@ -47,12 +48,10 @@ def schedule(request):
 
 
 def recording(request):
-    response = requests.get("http://localhost:8000/api/smartquerest/cabinets_by_name/")
-    response = response.text.replace('\\', '')
-    checkboxes = json.loads(response[1:-1])
+    response = requests.get("http://178.154.213.228:8000/api/smartquerest/cabinets_by_name/")
+    checkboxes = json.loads(response.json())['cabs']
     print(response)
     print(checkboxes)
-    checkboxes = checkboxes['cabs']
     context = {
         'title' : 'Запись',
         'checkboxes' : checkboxes
@@ -63,7 +62,7 @@ def recording(request):
 def yournumber(request):
     cabs_data = json.dumps(request.POST.getlist('cabs_options'))
     second = {'json_s' : cabs_data}
-    clientnumber = requests.post("http://localhost:8000/api/smartquerest/create_guest/", data=second)
+    clientnumber = requests.post("http://178.154.213.228:8000/api/smartquerest/create_guest/", data=second)
     context = {
         'title' : 'Результат записи',
         'clientnumber' : clientnumber.text
