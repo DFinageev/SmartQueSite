@@ -45,7 +45,9 @@ class CabinetViewSet(viewsets.ModelViewSet):
     def cabinets_by_name(self, request):
         cabs = Cabinet.objects.all().values_list('cab_name', flat=True)
         cabsdata = {'cabs' : list(cabs)}
+        print(cabsdata)
         jsoncabs = json.dumps(cabsdata)
+        print(jsoncabs)
         return Response(jsoncabs)
     
     @action(detail=False, methods=['post'])
