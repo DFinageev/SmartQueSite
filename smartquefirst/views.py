@@ -4,6 +4,8 @@ from django.http import Http404
 import requests
 import json
 
+current_address = "http://localhost:8000"
+#current_address = "http://178.154.213.228:8000"
 
 def index(request):
     #response = requests.get("http://localhost:8000/api/smartquerest/")
@@ -29,7 +31,8 @@ def topic(request, topic_id):
 
 
 def schedule(request):
-    response = requests.get("http://178.154.213.228:8000/api/smartquerest/get_schedule/")
+    global current_address
+    response = requests.get(f"{current_address}/api/smartquerest/get_schedule/")
     #print(response.json)
     
     firstline = json.loads(response.json())['names']
@@ -48,7 +51,8 @@ def schedule(request):
 
 
 def recording(request):
-    response = requests.get("http://178.154.213.228:8000/api/smartquerest/cabinets_by_name/")
+    global current_address
+    response = requests.get(f"{current_address}/api/smartquerest/cabinets_by_name/")
     checkboxes = json.loads(response.json())['cabs']
     print(response)
     print(checkboxes)
@@ -60,9 +64,10 @@ def recording(request):
 
 
 def yournumber(request):
+    global current_address
     cabs_data = json.dumps(request.POST.getlist('cabs_options'))
     second = {'json_s' : cabs_data}
-    clientnumber = requests.post("http://178.154.213.228:8000/api/smartquerest/create_guest/", data=second)
+    clientnumber = requests.post(f"{current_address}/api/smartquerest/create_guest/", data=second)
     context = {
         'title' : 'Результат записи',
         'clientnumber' : clientnumber.text
