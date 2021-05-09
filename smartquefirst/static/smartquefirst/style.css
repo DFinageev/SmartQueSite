@@ -20,16 +20,14 @@
   color: #3a3b40;
   }
   .column2{
-  width:32%;
+  width:25%;
   float:right;
   font-family:  'Montserrat', sans-serif;
   color: #3a3b40;
   }
   header{
   background-color:rgb(123, 148, 173);  
-  margin-left: 2px;
-  margin-right: 2px;
- }
+  }
   .smartque {
     float: left;
     margin-top: 15px;
@@ -110,9 +108,8 @@
       height: 300px;
   }
   .qrtitle{
-      margin-left: 32px;
-      font-size: 18px;
-      margin-right: 50px;
+      margin-left: 25px;
+      font-size: 20px;
   }
   .Checkbox{
     margin-top: 100px;
@@ -281,7 +278,6 @@ table {
   margin-right: auto;
   font-family:  'Montserrat', sans-serif;
   color: #3a3b40;
-  margin-top: 32px;
   }
   tr:first-child
   {
