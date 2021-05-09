@@ -2,3 +2,9 @@
 smartquefirst/Архив.zip
 
 requirements.txt
+
+smartquefirst/__pycache__/
+
+smartquerest/__pycache__/
+
+smartquefirst/migrations/__pycache__/
