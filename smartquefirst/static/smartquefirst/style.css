@@ -293,11 +293,11 @@ table {
   th, td:first-child {
   padding: 10px 20px;
   max-width: auto;
+  
   }
   th, td {
   border-style: solid;
   border-width: 0 1px 1px 0;
-  border-color: #1C1A1F;
   max-width: auto;
   }
   td {
@@ -318,7 +318,7 @@ table {
   }
  h2.button
 {
- margin-top: 220px;
+ margin-top: 12%;
 }
 h2.main
 {
