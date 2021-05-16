@@ -18,3 +18,7 @@ key.txt
 *.sqlite3
 
 smartquerest/migrations/
+
+smartquefirst/templates/smartquefirst/.DS_Store
+
+.DS_Store
