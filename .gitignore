@@ -14,3 +14,7 @@ smartquefirst/migrations/__pycache__/
 SmartQueSite/__pycache__/
 
 key.txt
+
+*.sqlite3
+
+smartquerest/migrations/
