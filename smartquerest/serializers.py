@@ -42,6 +42,16 @@ class GuestSerializer(serializers.Serializer):
         return instance
     
 
+class MovedGuestSerializer(serializers.Serializer):
+    guest_key = serializers.IntegerField()
+    
+    def create(self, validated_data):
+        return MovedGuest.objects.create(**validated_data)
+    
+    def update(self, instance, validated_data):
+        instance.guest_key = validated_data.get('guest_key', instance.guest_key)
+        instance.save()
+        return instance
 '''
 class ScheduleSerializer(serializers.Serializer):
     query = CabinetSerializer(read_only=True, many=True)

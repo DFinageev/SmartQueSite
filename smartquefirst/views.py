@@ -54,8 +54,8 @@ def recording(request):
     global current_address
     response = requests.get(f"{current_address}/api/smartquerest/cabinets_by_name/")
     checkboxes = json.loads(response.json())['cabs']
-    print(response)
-    print(checkboxes)
+    #print(response)
+    #print(checkboxes)
     context = {
         'title' : 'Запись',
         'checkboxes' : checkboxes
@@ -68,8 +68,9 @@ def yournumber(request):
     cabs_data = json.dumps(request.POST.getlist('cabs_options'))
     second = {'json_s' : cabs_data}
     clientnumber = requests.post(f"{current_address}/api/smartquerest/create_guest/", data=second)
+    print(json.loads(clientnumber.json()))
     context = {
         'title' : 'Результат записи',
-        'clientnumber' : clientnumber.text
+        'clientnumber' : json.loads(clientnumber.json())['number']
     }
     return render(request, 'smartquefirst/yournumber.html', context)

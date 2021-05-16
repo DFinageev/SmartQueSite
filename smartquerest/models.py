@@ -22,6 +22,11 @@ class Guest(models.Model):
         return str(self.number)
     
     
+class MovedGuest(models.Model):
+    guest_key = models.IntegerField()
+    
+    def __str__(self):
+        return str(self.guest_key)
     
 '''    
 class Schedule(models.Model):
