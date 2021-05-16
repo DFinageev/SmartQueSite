@@ -43,9 +43,11 @@ class CabinetViewSet(viewsets.ModelViewSet):
         #jsreq = json.loads(request)
         Guest.objects.create(number=number, tg_id=-1, cabinets=cabs_list, cabinet=min_cab)
         MovedGuest.objects.create(guest_key=number)
-        return Response(json.dumps({
-            "number" : number
-        }))
+        print(number)
+#        return Response(json.dumps({
+#            "number" : number
+#        }))
+        return Response(number)
     
         
     @action(detail=False)

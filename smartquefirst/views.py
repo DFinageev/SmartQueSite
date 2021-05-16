@@ -68,9 +68,9 @@ def yournumber(request):
     cabs_data = json.dumps(request.POST.getlist('cabs_options'))
     second = {'json_s' : cabs_data}
     clientnumber = requests.post(f"{current_address}/api/smartquerest/create_guest/", data=second)
-    print(json.loads(clientnumber.json()))
+#    print(dict(json.loads(clientnumber.text)))
     context = {
         'title' : 'Результат записи',
-        'clientnumber' : json.loads(clientnumber.json())['number']
+        'clientnumber' : clientnumber.text
     }
     return render(request, 'smartquefirst/yournumber.html', context)
